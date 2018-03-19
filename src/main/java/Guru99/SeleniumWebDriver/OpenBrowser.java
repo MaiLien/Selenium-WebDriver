@@ -1,7 +1,8 @@
 package Guru99.SeleniumWebDriver;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class OpenBrowser {
@@ -20,13 +21,19 @@ public class OpenBrowser {
 		// "C:\\Users\\PhoPhaoHoa\\eclipse-workspace\\SeleniumWebDriver\\chromedriver\\2.9\\chromedriver.exe");
 		// WebDriver driver = new ChromeDriver();
 
-		driver.get("http://google.com");
-		driver.get("http://mail.google.com");
+		driver.get("https://www.guru99.com/first-webdriver-script.html");
 
 		String actualTitle = driver.getTitle();
 		System.out.println(actualTitle);
-
+		
+		String xpath = "//*[@itemprop='headline']";
+		WebElement header = driver.findElement(By.xpath(xpath));
+		String tagName = header.getTagName();
+		System.out.println(tagName);
+		
 		driver.close();
+//		driver.quit();
+//		System.exit(0);
 		
 	}
 
